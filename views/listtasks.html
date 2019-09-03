@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://localhost:8080/">Home</a><br>
+    <a href="http://localhost:8080/newtask">Add New Task</a><br>
+    <a href="/deleteCompletedtask">Delete Completed Task</a><br>
+
+
+    <h3>The list of tasks are:
+        <table>
+            <tr>
+                <td>Task ID</td>
+                <td>Name</td>
+                <td>Due Date</td>
+                <td>Description</td>
+                <td>Task Status</td>
+                <td>Assign To</td>
+            </tr>
+            <% for ( var i = 0; i < taskDB.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= taskDB[i].taskID%>
+                    </td>
+                    <td>
+                        <%= taskDB[i].taskName %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].dueDate %>
+                    </td>
+                    <td>
+                        <%= taskDB[i].description%>
+                    </td>
+                    <td>
+                        <%= taskDB[i].taskStatus%>
+                    </td>
+                    <td>
+                        <%= taskDB[i].assignTo%>
+                    </td>
+                </tr>
+
+                <% } %>
+        </table>
+    </h3>
+    <h3>Update</h3><br>
+    <!--form to update task new status-->
+    <form action="/updateStatus" method="POST">
+        Task ID:<input type="number" method="POST" name="taskid" > 
+        taskStatus: <select name="taskStatus1">
+            <option value="InProgress">InProgress</option>
+            <option value="Complete">Complete</option>
+        </select></br>
+        <button>Update</button>
+    </form>
+    </br>
+
+    <h3>Delete With ID</h3><br>
+    <!--form to delete task by id-->
+    <form action="/deleteWithId" method="POST">
+        Task ID:<input type="number"  method="POST" name="taskid2">
+        <button>Delete</button>
+    </form>
+    <br>
+</body>
+
+</html>

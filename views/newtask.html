@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a href="http://localhost:8080/">Home</a></br>
+    <a href="http://localhost:8080/listtasks">List All Tasks</a></br>
+    
+    <form action="/listtasks" method="POST">
+        Task Name: <input type="text" name="taskname"></br>
+        Task Due: <input type="date" name="duedate"></br>
+        Task Desc: <input type="text" name="taskdesc"></br>
+        Task Status:  <select name="taskstatus">
+                <option value="InProgress">InProgress</option>
+                <option value="Complete">Complete</option>
+                </select></br>
+        Assign To: <input type="text" name="assignto"></br>
+        
+        <!--two more input boxes-->
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
